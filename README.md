@@ -1,4 +1,5 @@
-# This project is based around a simple e-commerse store. The pupose of this project is to demonstrate use of dynamic routing, APIs, asynchonous code, React router and responsive design using Tailwind. The project was build using React and you can see how to run this project by following the instructions below.
+# Abou this code
+This project is based around a simple e-commerse store. The pupose of this project is to demonstrate use of dynamic routing, APIs, asynchonous code, React router and responsive design using Tailwind. The project was build using React and you can see how to run this project by following the instructions below.
 
 ## Getting Started with Create React App
 
