@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate();
 
   const fetchProducts = async () => {
     try {
@@ -37,9 +38,10 @@ function App() {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
            {
+            
             products.map((product)=>{
               return(
-                <Link to={`/product/${product.id}`} state={product} className="p-4 md:w-1/3">
+                <Link to={`/product/${product.id}`} state={product} className="p-4 md:w-1/3" key={product.id}>
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                   <img
                     className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -57,21 +59,25 @@ function App() {
                       { product.description }
                     </p>
                     <div className="flex items-center flex-wrap ">
-                      <Link to={`/product/${product.id}`} className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                        Quick Add
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                    <button
+                          onClick={() => navigate(`/product/${product.id}`)}
+                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                         >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                      </Link>
+                          Quick Add
+                          <svg
+                            className="w-4 h-4 ml-2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </button>
+                    
                       <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                         <svg
                           className="w-4 h-4 mr-1"
