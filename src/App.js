@@ -45,7 +45,7 @@ function App() {
                 >
                   <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                     <img
-                      className="lg:h-48 md:h-36 w-full object-cover object-center"
+                      className="pt-6 lg:h-48 md:h-36 w-full object-contain object-center"
                       src={product.image}
                       alt="blog"
                     />
